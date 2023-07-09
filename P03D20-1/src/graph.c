@@ -5,23 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//все ф-ции, работающие с очередью elem, возвращают ссылку на новый пустой элемент очереди
-char* get_user_input();
-struct elem* get_polish(char* source);
-//в cur лежит следующий пустой элемент
-void out_insert(struct elem** cur, double data, char type);
-//в cur лежит следующий пустой элемент
-void stack_insert(struct stack_lex** lexemms, struct elem** cur, char data);
-void read_elem(char** p_source, struct elem** p_cur, struct stack_lex** p_lex_stak);
-//в cur лежит следующий пустой элемент
-void read_num(char** source, struct elem** cur);
-void read_lex(char** source, struct elem** cur, struct stack_lex** lex_stack);
-char pop_lexem(struct stack_lex** p_lexemms);
-void make_graph(struct elem* polish);
-void normalize_data(double* y_data);
-double solve_polish(struct elem* polish, double x);
-void do_action(char action, struct stack_nums** p_num_stack);
-void destroy_elem(struct elem* root);
+
 
 
 int main() {
@@ -96,7 +80,6 @@ struct elem* get_polish(char* source) {
     return root;
 }
 
-//должна сдвинуть сурс вправо
 void read_elem(char** p_source, struct elem** p_cur, struct stack_lex** p_lex_stack) {
     char* source = *p_source;
     struct elem* cur = *p_cur;
@@ -202,7 +185,6 @@ void out_insert(struct elem** p_cur, double data, char type) {
     *p_cur = cur;
 }
 
-//в cur лежит следующий пустой элемент
 void stack_insert(struct stack_lex** p_lexemms, struct elem** p_cur, char data) {
     struct elem* cur = *p_cur;
     struct stack_lex* lexemms = *p_lexemms;
